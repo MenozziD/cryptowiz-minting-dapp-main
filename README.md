@@ -15,13 +15,14 @@ To better understand this source take thise course:
 ## Installation
 
 You can use **the default CryptoWiz smart contract** and play with it or you can also put **your own smart contract** and make changes as needed. Remember to make `.env` file with your own variables like this.
+
 ```bash
 
-	NEXT_PUBLIC_ALCHEMY_RPC_URL=PRESONAL_NEXT_PUBLIC_ALCHEMY_RPC_URL>
-	NEXT_PUBLIC_FORTMATIC_KEY=<PERSONAL_NEXT_PUBLIC_FORTMATIC_KEY>
-	NEXT_PUBLIC_DAPP_ID=<PERSONAL_NEXT_PUBLIC_DAPP_ID>
-	METAMASK_PRIVATE_KEY=<PERSONAL_METAMASK_PRIVATE_KEY>
-	ETHERSCAN_API_KEY=<PERSONAL_ETHERSCAN_API_KEY>
+ NEXT_PUBLIC_ALCHEMY_RPC_URL=<PERSONAL_NEXT_PUBLIC_ALCHEMY_RPC_URL>
+ NEXT_PUBLIC_FORTMATIC_KEY=<PERSONAL_NEXT_PUBLIC_FORTMATIC_KEY>
+ NEXT_PUBLIC_DAPP_ID=<PERSONAL_NEXT_PUBLIC_DAPP_ID>
+ METAMASK_PRIVATE_KEY=<PERSONAL_METAMASK_PRIVATE_KEY>
+ ETHERSCAN_API_KEY=<PERSONAL_ETHERSCAN_API_KEY>
 
 ```
 
@@ -54,6 +55,13 @@ to do that. You can find the _deploy_ & _verify_ scripts inside `/scripts`folder
   npx hardhat run scripts/verifyContract.js --network rinkeby
 ```
 
+**IMPORTANT**
+
+When deploying the contract the state of the **presaleM** and **publicM** properties is false.
+Set at least one of the properties to true with **togglePresale** and **togglePublicSale** if no causes fee calculation error.
+
+**Client:** 
+
 \*\* If you want to use a different network you need to pass its name instead of rinkeby. Also make sure you configured it
 in `hardhat.config.js` file as a network option.
 
@@ -82,5 +90,8 @@ To do that;
 
 **Server:** Alchemy, NextJS, Hardhat
 
+## Support
+
+Write me on mnz3553@gmail.com
 
 [!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/mnz3553Q)

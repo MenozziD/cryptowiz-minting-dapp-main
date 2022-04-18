@@ -39,7 +39,8 @@ contract CryptoWiz is
     uint256 presaleAmountLimit = 3;
     mapping(address => uint256) public _presaleClaimed;
 
-    uint256 _price = 1000000000000000; // 0.001 ETH
+    //uint256 _price = 10000000000000000; // 0.01 ETH
+    uint256 _price = 5000000000000000; // 0.005 ETH
 
     Counters.Counter private _tokenIds;
 
