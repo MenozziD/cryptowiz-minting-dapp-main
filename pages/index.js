@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import Snowfall from 'react-snowfall'
 import LogoNav from '../comps/LogoNav'
 import MenuNav from '../comps/MenuNav'
 
@@ -9,25 +10,26 @@ import WizIcon from '../Wiz'
 
 export default function Home() {
   return (
-    <div className="min-h-screen h-full w-full flex flex-col bg-brand-purple overflow-hidden">
+    <div className="min-h-screen h-full w-full flex flex-col bg-snow overflow-hidden">
       <Head>
         <title>{config.title}</title>
         <meta name="description" content={config.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="min-w-full text-gray-800 py-7 px-4 md:px-0 bg-gray-300/60 justify-center">
-        <div className="flex items-center container max-w-8xl justify-between h-full mx-40">
+      <header className="min-w-full text-gray-800 py-7 px-4 md:px-0 bg-gray-300/60 justify-center ">
+        <Snowfall />
+        <div className="flex items-center container justify-start md:justify-between h-full ml-0 md:ml-40 ">
           {/* Logo */}
           <Link href="#" >
-            <LogoNav />
+            <LogoNav className=""/>
           </Link>
           
           <MenuNav/>
 
           {/* Opensea Twitter Discord Links */}
-          <nav aria-label="Contact Menu" className='mr-0'>
-            <ul className="flex items-center space-x-4 md:space-x-6">
+          <nav aria-label="Contact Menu" className='mr-0 '>
+            <ul className="flex justify-start items-center space-x-6">
               <li className="cursor-pointer">
                 <a href="https://opensea.io" target="_blank" rel="noreferrer">
                   <svg
@@ -85,34 +87,32 @@ export default function Home() {
       </header>
 
       <div className="h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4">
-        <div className="flex flex-col items-center max-w-4xl w-full">
+        <div className="flex flex-col items-center max-w-8xl w-full ">
 
-          <div className="flex flex-col md:flex-row md:space-x-16 space-y-3 items-center mt-10 w-full">
+          <div className=" {paused ? 'Paused' : } flex flex-col md:flex-row md:space-x-16 space-y-3 items-center mt-10 w-full">
             {/* CryptoWiz Image */}
             <img
               src="/images/final_1.png"
               className="w-64 h-64 rounded-md object-cover"
             />
 
-            <div className="flex flex-col md:items-start items-center justify-center text-center font-ps2p text-gray-800 px-4 md:px-0 py-10 mt-14">
+            <div className="flex flex-col md:items-start items-center justify-center text-center font-ps2p text-gray-800 px-2 md:px-0 py-20 ">
               <h2 className="font-bold text-2xl md:text-4xl uppercase">
-                About CryptoWiz
+                CryptoWiz Adventure
               </h2>
 
               <p className="mt-6 text-md text-left">
-                {`CryptoWizs are a collection of 5,555 burning hot NFTs living in
-                the core of the blockchain. Each individual CryptoWizs is
-                carefully curated from over 150 traits, along with some
-                incredibly rare 1/1s that have traits that can't be found from
-                any other CryptoWizs. Our vision is to create an amazing project
-                that will shed light, joy, love, and creativity! Burn on,
-                CryptoWizs!`}
+                {`CryptoWiz are collections of 777 high customizable NFTs living in the core of the blockchain.
+                Each individual CryptoWiz is randomly composed from over 7 traits and personalizale with more of 1000 items,
+                along with some incredibly rare 1/1s that have traits that can't be found from any other CryptoWiz.
+                Our vision is to create an ultra creative project which will allow you to define your UNIQUE and DEGEN crypto personality!
+                Spell on, CryptoWiz!`}
               </p>
             </div>
           </div>
 
           <Link href="/mint" passHref>
-            <a className="mt-16 font-ps2p uppercase inline-flex items-center px-6 oy-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-rose-500 hover:bg-rose-600 hover:text-white">
+            <a className=" mb-12 mt-2 md:mt-8 font-ps2p uppercase inline-flex items-center px-6 py-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-rose-500 hover:bg-rose-600 hover:text-white">
               Go to minting page
               <svg
                 xmlns="http://www.w3.org/2000/svg"

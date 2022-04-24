@@ -130,10 +130,10 @@ export default function Mint() {
         />
 
         <div className="flex flex-col items-center justify-center h-full w-full px-2 md:px-10">
-          <div className="relative z-1 md:max-w-3xl w-full bg-purple-700/60 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
+          <div className="relative z-1 md:max-w-3xl w-full bg-purple-700/30 filter backdrop-blur-sm py-4 rounded-2xl px-2 md:px-10 flex flex-col items-center">
             {wallet && (
               <button
-                className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk bg-transparent shadow-xl hover:shadow-pink-400/50 px-0 py-0 rounded-md text-3xl font-ps2p text-white tracking-wide uppercase"
+                className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk bg-transparent shadow-xl hover:shadow-pink-400/50 px-0 py-5 md:py-0 rounded-md text-3xl font-ps2p text-white tracking-wide uppercase"
                 onClick={() =>
                   disconnect({
                     label: wallet.label
@@ -143,7 +143,7 @@ export default function Mint() {
                 &#128682;
               </button>
             )}
-            <h1 className="font-ps2p uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br  from-brand-green to-brand-blue bg-clip-text text-transparent mt-3">
+            <h1 className="font-ps2p uppercase font-bold text-2xl md:text-4xl bg-gradient-to-br from-brand-green to-brand-blue bg-clip-text text-transparent mt-20 md:mt-3">
               {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest">
@@ -165,16 +165,16 @@ export default function Mint() {
 
                 <img
                   src="/images/final_9.png"
-                  className="object-cover w-60 h-full rounded-md"
+                  className="object-contain md:object-cover mx-20 md:mx-0 md:px-0 mb-0 w-40 md:w-60 h-full rounded-md"
                 />
               </div>
 
-              <div className="flex flex-col items-center w-full px-4 mt-16 md:mt-0">
+              <div className="flex flex-col items-center w-full px-4 mt-8 md:mt-0">
                 <div className="font-ps2p flex items-center justify-between w-full">
                   <button
                   className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
                   onClick={incrementMintAmount}
-                  >
+                >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6 md:h-8 md:w-8"
@@ -220,7 +220,7 @@ export default function Mint() {
                   Max Mint Amount: {maxMintAmount}
                 </p>
 
-                <div className="border-t border-b py-4 px-8 mt-16 w-full">
+                <div className="border-t border-b py-4 px-0 md:px-8 mt-8 md:mt-16 w-full">
                   <div className="w-full text-lg font-ps2p flex items-center justify-between text-brand-yellow">
                     <p className='mx-3 px-1'>Total</p>
                     <div className="flex items-center w-full space-x-3">
@@ -274,14 +274,14 @@ export default function Mint() {
 
             {/* Contract Address */}
             <div className="border-t border-gray-800 flex flex-col items-center mt-10 py-2 w-full">
-              <h3 className="font-ps2p text-2xl text-brand-pink uppercase mt-6">
+              <h3 className="font-ps2p text-xl md:text-2xl text-brand-pink uppercase mt-6">
                 Contract Address
               </h3>
               <a
                 href={`https://rinkeby.etherscan.io/address/${config.contractAddress}#readContract`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 mt-4"
+                className="text-gray-300 mt-4 text-xs md:text-xl"
               >
                 <span className="break-all ...">{config.contractAddress}</span>
               </a>

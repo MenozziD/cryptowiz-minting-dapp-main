@@ -6,6 +6,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .bg-snow {
+    @apply bg-gradient-to-b from-blue-500 to-cyan-500;
+    @apply animate-pulse-slow;
+  }
+}
+
 :root {
   --font-family: 'Open Sans', sans-serif;
   --clr-light: #f0e9e9;
@@ -70,3 +77,7 @@ html {
   background: var(--clr-selection-bg);
   color: var(--clr-selection-text);
 }
+
+
+
+
