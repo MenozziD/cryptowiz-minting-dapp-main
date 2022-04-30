@@ -13,6 +13,33 @@
   }
 }
 
+@layer components {
+  .bg-faucet {
+    background-image: url("/images/stars-fall.gif");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-color: #9b5de5;
+    @apply inset-auto;
+    @apply block; 
+    @apply w-full;
+    @apply min-h-screen;
+    @apply object-cover;
+  }
+}
+
+@layer components {
+  .bg-mint {
+    background-image: url("/images/blur.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    @apply inset-auto;
+    @apply block; 
+    @apply w-full;
+    @apply min-h-screen;
+    @apply object-cover;
+  }
+}
+
 :root {
   --font-family: 'Open Sans', sans-serif;
   --clr-light: #f0e9e9;
@@ -71,6 +98,7 @@ html {
   scroll-behavior: smooth;
   font-family: var(--font-family);
   background: var(--clr-background);
+  overflow-x: hidden; /* Hide scrollbars */
 }
 
 ::selection {

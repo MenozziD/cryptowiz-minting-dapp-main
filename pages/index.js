@@ -1,14 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react';
+import { useRouter } from 'next/router'
 import Snowfall from 'react-snowfall'
 import LogoNav from '../comps/LogoNav'
 import MenuNav from '../comps/MenuNav'
+import BoxFaucet from '../comps/BoxFaucet'
+import BoxMint from '../comps/BoxMint'
 
 import { config } from '../dapp.config'
 import WizIcon from '../Wiz'
 
 export default function Home() {
+
+  const router = useRouter()
+
+  useEffect(() => {
+      router.push('#home');
+  }, []);
+
+
   return (
     <div className="min-h-screen h-full w-full flex flex-col bg-snow overflow-hidden">
       <Head>
@@ -17,8 +29,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="min-w-full text-gray-800 py-7 px-4 md:px-0 bg-gray-300/60 justify-center ">
-        <Snowfall />
+      {/* NAVBAR */}
+      <header className="fixed min-w-full text-gray-800 py-7 px-4 md:px-0 bg-gray-300/60 justify-center ">
         <div className="flex items-center container justify-start md:justify-between h-full ml-0 md:ml-40 ">
           {/* Logo */}
           <Link href="#" >
@@ -86,7 +98,17 @@ export default function Home() {
         </div>
       </header>
 
-      <div className="h-full w-full container max-w-5xl mx-auto flex flex-col items-center pt-4">
+      {/* HOME */}
+      <div id="home" className="h-full w-full container max-w-5xl mx-auto my-12 flex flex-col items-center pb-4 pt-20">
+
+        <Snowfall 
+            style={{
+              position: 'absolute',
+              width: '100vw',
+              height: '95vh'
+            }}
+        />
+
         <div className="flex flex-col items-center max-w-8xl w-full ">
 
           <div className=" {paused ? 'Paused' : } flex flex-col md:flex-row md:space-x-16 space-y-3 items-center mt-10 w-full">
@@ -113,7 +135,7 @@ export default function Home() {
 
           <Link href="/mint" passHref>
             <a className=" mb-12 mt-2 md:mt-8 font-ps2p uppercase inline-flex items-center px-6 py-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-rose-500 hover:bg-rose-600 hover:text-white">
-              Go to minting page
+              Go to FREE MINT page
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-6 h-6 ml-2 mt-0.5"
@@ -131,8 +153,36 @@ export default function Home() {
             </a>
           </Link>
 
+          <Link href="/faucet" passHref>
+            <a className=" mb-12 mt-2 md:mt-8 font-ps2p uppercase inline-flex items-center px-6 py-2 text-sm sm:text-2xl md:text-3xl font-medium text-center rounded text-rose-500 hover:bg-rose-600 hover:text-white">
+              Go to FAUCET ITEM page
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 ml-2 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </Link>
+        
         </div>
+
       </div>
+
+      {/* FAUCET */}      
+      <BoxFaucet />
+
+      {/* MINT */}      
+      <BoxMint />
+
     </div>
   )
 }
