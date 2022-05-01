@@ -8,7 +8,7 @@ const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
 const whitelist = require('./whitelist.js')
 
-const BASE_URI = 'ipfs://QmTKjB9drwLup7nADZg93GTxoPkacwD1fPpobQpuubi4he/'
+const BASE_URI = 'ipfs://QmY3diCWHtBgFU6GubdhiBmm5PRSWqVyySXQqmLp1XcTBq/'
 const proxyRegistryAddressRinkeby = '0xf57b2c51ded3a29e6891aba85459d600256cf317'
 const proxyRegistryAddressMainnet = '0xa5409ec958c83c3f309868babaca7c86dcb077c1'
 

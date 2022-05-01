@@ -7,8 +7,6 @@ import {
   getMaxSupply,
   isPausedState,
   isPublicSaleState,
-  isPreSaleState,
-  presaleMint,
   publicMint
 } from '../utils/interact'
 
@@ -22,7 +20,6 @@ const BoxMint = () =>  {
   const [maxMintAmount, setMaxMintAmount] = useState(0)
   const [paused, setPaused] = useState(false)
   const [isPublicSale, setIsPublicSale] = useState(false)
-  const [isPreSale, setIsPreSale] = useState(false)
 
   const [status, setStatus] = useState(null)
   const [mintAmount, setMintAmount] = useState(1)
@@ -73,12 +70,8 @@ const BoxMint = () =>  {
 
       setPaused(await isPausedState())
       setIsPublicSale(await isPublicSaleState())
-      const isPreSale = await isPreSaleState()
-      setIsPreSale(isPreSale)
 
-      setMaxMintAmount(
-        isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
-      )
+      setMaxMintAmount(config.maxMintAmount)
     }
 
     init()
@@ -96,18 +89,6 @@ const BoxMint = () =>  {
     }
   }
 
-  const presaleMintHandler = async () => {
-    setIsMinting(true)
-
-    const { success, status } = await presaleMint(mintAmount)
-
-    setStatus({
-      success,
-      message: status
-    })
-
-    setIsMinting(false)
-  }
   const publicMintHandler = async () => {
     setIsMinting(true)
 
@@ -146,7 +127,7 @@ const BoxMint = () =>  {
               </button>
             )}
             <h1 className="font-ps2p uppercase font-bold text-2xl md:text-4xl bg-gradient-to-br from-brand-green to-brand-blue bg-clip-text text-transparent mt-20 md:mt-3">
-              {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
+              {paused ? 'Paused' : 'Public Sale'}
             </h1>
             <h3 className="text-sm text-pink-200 tracking-widest">
               {wallet?.accounts[0]?.address
@@ -246,7 +227,7 @@ const BoxMint = () =>  {
                         : 'bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg hover:shadow-pink-400/50'
                     } font-ps2p mt-12 w-full px-6 py-3 rounded-md text-2xl text-white  mx-4 tracking-wide uppercase`}
                     disabled={paused || isMinting}
-                    onClick={isPreSale ? presaleMintHandler : publicMintHandler}
+                    onClick={publicMintHandler}
                   >
                     {isMinting ? 'Minting...' : 'Mint'}
                   </button>

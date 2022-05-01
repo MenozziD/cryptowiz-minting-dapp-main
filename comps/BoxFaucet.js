@@ -8,7 +8,6 @@ import {
   isPausedState,
   isPublicSaleState,
   isPreSaleState,
-  presaleMint,
   publicMint
 } from '../utils/interact'
 
@@ -73,8 +72,6 @@ const BoxFaucet = () =>  {
 
       setPaused(await isPausedState())
       setIsPublicSale(await isPublicSaleState())
-      const isPreSale = await isPreSaleState()
-      setIsPreSale(isPreSale)
 
       setMaxMintAmount(
         isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
@@ -94,19 +91,6 @@ const BoxFaucet = () =>  {
     if (mintAmount > 1) {
       setMintAmount(mintAmount - 1)
     }
-  }
-
-  const presaleMintHandler = async () => {
-    setIsMinting(true)
-
-    const { success, status } = await presaleMint(mintAmount)
-
-    setStatus({
-      success,
-      message: status
-    })
-
-    setIsMinting(false)
   }
   const publicMintHandler = async () => {
     setIsMinting(true)

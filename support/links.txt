@@ -1,0 +1,26 @@
+https://nodejs.org/it/about/
+https://it.reactjs.org/
+https://nextjs.org/docs/basic-features/pages
+https://tailwindcss.com/docs/guides/nextjs
+https://coolors.co/
+https://fonts.google.com/specimen/Coming+Soon?query=open#standard-styles
+https://heroicons.com/
+https://www.svgrepo.com/
+https://www.w3schools.com/charsets/ref_emoji.asp
+https://www.w3schools.com/html/html_symbols.asp
+https://blog.logrocket.com/creating-custom-animations-tailwind-css/
+https://www.icoconverter.com/
+https://onlinegiftools.com/create-transparent-gif
+
+FINISH:
+https://vercel.com/mnz3553/cryptowiz-minting-dapp-main
+
+BACKEND:
+EC2 12 mesi free
+https://portal.aws.amazon.com/billing/signup?nc2=h_ct&src=header_signup&redirect_url=https%3A%2F%2Faws.amazon.com%2Fregistration-confirmation&language=it_it#/start/email
+
+#BUILD + DEPLOY + VERIFY SMART CONTRACT (HardHat)
+npx hardhat compile
+npx hardhat run scripts/verifyContract.js --network rinkeby
+
+npm run dev
