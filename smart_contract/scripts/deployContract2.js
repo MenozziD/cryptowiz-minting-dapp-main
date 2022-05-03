@@ -1,9 +1,8 @@
 /**
- *  This script will calculate the constructor arguments for the `verify` function and call it.
- *  You can use this script to verify the contract on etherscan.io.
+ *  This script will calculate the constructor arguments for BoredApe.sol and deploy it.
+ *  After deploying, you can access the contract on etherscan.io with the deployed contract address.
  */
 
-require('@nomiclabs/hardhat-etherscan')
 const hre = require('hardhat')
 const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
@@ -19,10 +18,17 @@ async function main() {
   const merkleTree = new MerkleTree(leafNodes, keccak256, { sortPairs: true })
   const root = merkleTree.getRoot()
 
-  await hre.run('verify:verify', {
-    address: '0x283c0c2D15C6Fe46AEAC95981eb65847326a4890', // Deployed contract address
-    constructorArguments: [proxyRegistryAddressRinkeby]
-  })
+  // Deploy the contract
+  const CryptoWiz = await hre.ethers.getContractFactory('CryptoWiz')
+  const cryptoWiz = await CryptoWiz.deploy(
+    BASE_URI,
+    root,
+    proxyRegistryAddressRinkeby
+  )
+
+  await cryptoWiz.deployed()
+
+  console.log('CryptoWiz deployed to:', cryptoWiz.address)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
