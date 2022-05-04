@@ -10,11 +10,11 @@ import "./ERC721Tradable.sol";
  */
 contract Wiz is ERC721Tradable {
     constructor(address _proxyRegistryAddress)
-        ERC721Tradable("Wiz", "WIZ", _proxyRegistryAddress)
+        ERC721Tradable("Wiz1", "WIZ", _proxyRegistryAddress)
     {}
 
     function baseTokenURI() override public pure returns (string memory) {
-        return "ipfs://QmPCk4CoHFcoGjhEGebWsWtZy6CBZ8Qr4zxu1pQvy8Uhtu/";
+        return "ipfs://Qmc4Hi6riJWvqEBM4eokvYjUUXyxTYjkM6SiiWxEVxzHk3/";
     }
 
     function contractURI() public pure returns (string memory) {
