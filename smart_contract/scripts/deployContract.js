@@ -8,7 +8,7 @@ const { MerkleTree } = require('merkletreejs')
 const keccak256 = require('keccak256')
 const whitelist = require('./whitelist.js')
 
-const BASE_URI = 'ipfs://QmY3diCWHtBgFU6GubdhiBmm5PRSWqVyySXQqmLp1XcTBq/'
+const BASE_URI = 'ipfs://QmWBtCxqf21RqW3k6f8ENEqg5e8kKnt9tSjcZM4vNeytN5/'
 const proxyRegistryAddressRinkeby = '0xf57b2c51ded3a29e6891aba85459d600256cf317'
 const proxyRegistryAddressMainnet = '0xa5409ec958c83c3f309868babaca7c86dcb077c1'
 
@@ -19,7 +19,7 @@ async function main() {
   const root = merkleTree.getRoot()
 
   // Deploy the contract
-  const CryptoWiz = await hre.ethers.getContractFactory('CryptoWiz')
+  const CryptoWiz = await hre.ethers.getContractFactory('CryptoWiz_0')
   const cryptoWiz = await CryptoWiz.deploy(
     BASE_URI,
     root,
