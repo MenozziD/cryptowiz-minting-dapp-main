@@ -19,7 +19,7 @@ async function main() {
   const root = merkleTree.getRoot()
 
   // Deploy the contract
-  const CryptoWiz = await hre.ethers.getContractFactory('CryptoWiz_0')
+  const CryptoWiz = await hre.ethers.getContractFactory('CryptoWiz_PGb')
   const cryptoWiz = await CryptoWiz.deploy(
     BASE_URI,
     root,

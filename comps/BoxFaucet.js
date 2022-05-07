@@ -113,7 +113,7 @@ const BoxFaucet = () =>  {
           <div className="relative z-1 md:max-w-4xl w-full bg-yellow-300/80 filter backdrop-blur-sm py-4 rounded-2xl px-2 md:px-10 flex flex-col items-center">
 
             <h1 className="font-ps2p uppercase font-bold text-2xl md:text-4xl bg-gradient-to-br from-brand-green to-brand-blue bg-clip-text text-transparent mt-20 md:mt-3">
-              {paused ? 'Paused' : 'Faucet Item' }
+              {paused ? 'Paused' : 'Drop Item' }
             </h1>
             <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
@@ -135,16 +135,16 @@ const BoxFaucet = () =>  {
                 </div>
 
                 <h3 className="font-ps2p text-xl md:text-lg text-center text-brand-pink uppercase mt-1">
-                      Send free a CryptoWiz Item NFT while stocks last!!
-                      Soon you will be able to equip your CryptoWiz with these.
+                      Drop a CryptoWiz Item NFT while stocks last!!
+                      Soon you will be able to equip your CryptoWiz PG with these.
                 </h3>                
-
+              {/* Send Button*/}
                 <div className="border-t border-b py-4 px-0 md:px-14 mt-8 md:mt-8 w-full">
                     <h3 className="font-ps2p text-xl md:text-lg text-center text-brand-pink uppercase mt-1">
                       Destination Address
                     </h3>                  
                   <div className="w-full text-lg font-ps2p flex items-center justify-between text-brand-yellow">
-                    <input class="border-2 border-red-400 focus:border-blue-400 bg-pink-300/60 rounded-md px-0" />
+                    <input className="border-2 border-red-400 focus:border-blue-400 bg-pink-300/60 rounded-md px-0 disable" />
                   </div>
                 </div>
 
@@ -157,7 +157,7 @@ const BoxFaucet = () =>  {
                     } font-ps2p mt-12 w-full px-6 py-3 rounded-md text-2xl text-white  mx-4 tracking-wide uppercase`}
                     disabled={paused || isMinting}
                   >
-                    {isMinting ? 'Sending...' : 'Send'}
+                    {isMinting ? 'Dropping...' : 'Drop'}
                   </button>
 
               </div>
