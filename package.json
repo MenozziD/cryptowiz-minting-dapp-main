@@ -27,6 +27,7 @@
     "hardhat": "^2.8.4",
     "keccak256": "^1.0.6",
     "merkletreejs": "^0.2.30",
+    "metamask-onboarding": "^0.1.1",
     "next": "12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",

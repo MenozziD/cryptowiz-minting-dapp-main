@@ -3,13 +3,8 @@ import { initOnboard } from '../utils/onboard'
 import { useConnectWallet, useSetChain, useWallets } from '@web3-onboard/react'
 import { config } from '../dapp.config'
 import {
-  getTotalMinted,
-  getMaxSupply,
-  isPausedState,
-  isPublicSaleState,
-  isPreSaleState,
-  publicMint
-} from '../utils/interact'
+  Mint
+} from '../utils/interact_item'
 
 const BoxFaucet = () =>  {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
@@ -67,35 +62,25 @@ const BoxFaucet = () =>  {
 
   useEffect(() => {
     const init = async () => {
-      setMaxSupply(await getMaxSupply())
-      setTotalMinted(await getTotalMinted())
+      //setMaxSupply(await getMaxSupply())
+      //setTotalMinted(await getTotalMinted())
 
-      setPaused(await isPausedState())
-      setIsPublicSale(await isPublicSaleState())
+      //setPaused(await isPausedState())
+      //setIsPublicSale(await isPublicSaleState())
 
-      setMaxMintAmount(
-        isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
-      )
+      //setMaxMintAmount(
+        //isPreSale ? config.presaleMaxMintAmount : config.maxMintAmount
+      //)
     }
 
     init()
   }, [])
 
-  const incrementMintAmount = () => {
-    if (mintAmount < maxMintAmount) {
-      setMintAmount(mintAmount + 1)
-    }
-  }
 
-  const decrementMintAmount = () => {
-    if (mintAmount > 1) {
-      setMintAmount(mintAmount - 1)
-    }
-  }
   const publicMintHandler = async () => {
     setIsMinting(true)
 
-    const { success, status } = await publicMint(mintAmount)
+    const { success, status } = await Mint(mintAmount)
 
     setStatus({
       success,
@@ -113,14 +98,13 @@ const BoxFaucet = () =>  {
           <div className="relative z-1 md:max-w-4xl w-full bg-yellow-300/80 filter backdrop-blur-sm py-4 rounded-2xl px-2 md:px-10 flex flex-col items-center">
 
             <h1 className="font-ps2p uppercase font-bold text-2xl md:text-4xl bg-gradient-to-br from-brand-green to-brand-blue bg-clip-text text-transparent mt-20 md:mt-3">
-              {paused ? 'Paused' : 'Drop Item' }
+              Drop Item
             </h1>
             <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
                 <div className="font-ps2p z-10 absolute top-2 left-2 opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
                   <p>
-                    <span className="text-brand-pink">{totalMinted}</span> /{' '}
-                    {maxSupply}
+                    <span className="text-brand-pink">0</span> /{' '}0
                   </p>
                 </div>
 
@@ -144,7 +128,7 @@ const BoxFaucet = () =>  {
                       Destination Address
                     </h3>                  
                   <div className="w-full text-lg font-ps2p flex items-center justify-between text-brand-yellow">
-                    <input className="border-2 border-red-400 focus:border-blue-400 bg-pink-300/60 rounded-md px-0 disable" />
+                    <input className="border-2 border-red-400 focus:border-blue-400 bg-pink-300/60 rounded-md px-0 " disabled="true" />
                   </div>
                 </div>
 
@@ -155,7 +139,8 @@ const BoxFaucet = () =>  {
                         ? 'bg-gray-900 cursor-not-allowed'
                         : 'bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg hover:shadow-pink-400/50'
                     } font-ps2p mt-12 w-full px-6 py-3 rounded-md text-2xl text-white  mx-4 tracking-wide uppercase`}
-                    disabled={paused || isMinting}
+                    disabled={isMinting}
+                    onClick={publicMintHandler}
                   >
                     {isMinting ? 'Dropping...' : 'Drop'}
                   </button>
@@ -182,12 +167,12 @@ const BoxFaucet = () =>  {
                 Contract Address
               </h3>
               <a
-                href={`https://rinkeby.etherscan.io/address/${config.contractAddress}#readContract`}
+                href={`https://rinkeby.etherscan.io/address/${config.contractAddress_item}#readContract`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 mt-4 text-xs md:text-xl"
               >
-                <span className="break-all ...">{config.contractAddress}</span>
+                <span className="break-all ...">{config.contractAddress_item}</span>
               </a>
             </div>
           </div>
