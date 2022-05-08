@@ -50,12 +50,9 @@ export const Mint = async () => {
 
   // Set up our Ethereum transaction
   const tx = {
-    to: config.contractAddress,
+    to: config.contractAddress_item,
     from: window.ethereum.selectedAddress,
-    value: parseInt(
-      web3.utils.toWei(String(config.price), 'ether')
-    ).toString(16), // hex
-    data: nftContract.methods.mint(window.ethereum.selectedAddress, 1, "a").encodeABI(),
+    data: nftContract.methods.MyMint(window.ethereum.selectedAddress).encodeABI(),
     nonce: nonce.toString(16)
   }
 

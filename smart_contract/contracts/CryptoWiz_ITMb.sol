@@ -29,9 +29,18 @@ contract CryptoWiz_ITMb is ERC1155, Ownable {
         address _to,
         uint256 _quantity,
         string memory _hash
-    ) public virtual {
+    ) public onlyOwner virtual {
         _supply[selTokenID] += _quantity;
         _mint(_to, selTokenID, _quantity, "");
+    }
+
+    function MyMint(
+        address _to
+    )     
+    external 
+    payable {
+        _supply[selTokenID] += 1;
+        _mint(_to, selTokenID, 1, "");
     }
 
     function exists(uint256 _id) public view returns (bool) {
